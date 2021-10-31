@@ -8,6 +8,7 @@ public class MenuManager : MonoBehaviour
 
 	[SerializeField]
 	private Menu[] menus;
+
 	[SerializeField]
 	private GameObject settingPanel;
 

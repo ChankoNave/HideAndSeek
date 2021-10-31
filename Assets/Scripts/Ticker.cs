@@ -6,20 +6,22 @@ public class Ticker : MonoBehaviour
 {
     public static Ticker inst;
     public static Action OnTick;
-    void Start()
+
+    private void Start()
     {
         inst = this;
         RunTicks();
     }
 
     IEnumerator runnerTicks;
-    public void RunTicks()
+
+    private void RunTicks()
     {
         runnerTicks = IERunTicks();
         StartCoroutine(runnerTicks);
     }
 
-    public void StopTicks()
+    private void StopTicks()
     {
         if (runnerTicks != null)
             StopCoroutine(runnerTicks);

@@ -5,34 +5,40 @@ public class VolumeValue : MonoBehaviour
 {
     public static VolumeValue inst;
 
-    public GameObject BGMusic;  //Ваш объект с фоновой музыкой
+    public GameObject BGMusic;
+
     private AudioSource audioSrc;
+
     public static float musicVolume;
-    public Slider VolValue; //Слайдер если нужна регулировка
+
+    public Slider VolValue;
+
     public GameObject[] objs1;
 
     private void Awake()
     {
         inst = this;
-        //VolValue = GameObject.FindObjectOfType("Slaider");
-        objs1 = GameObject.FindGameObjectsWithTag("Sound"); //не забываем задать тег Sound для префаба с музыкой
+
+        objs1 = GameObject.FindGameObjectsWithTag("Sound");
+
         if (objs1.Length == 0)
         {
-            BGMusic = Instantiate(BGMusic); //создаем объект из префаба
-            BGMusic.name = "BGMusic";  //необязательно, просто внешний вид улучшает:)
-            DontDestroyOnLoad(BGMusic.gameObject); //Ответ на Ваш вопрос
+            BGMusic = Instantiate(BGMusic);
+            BGMusic.name = "BGMusic";
+            DontDestroyOnLoad(BGMusic.gameObject);
         }
         else
-            BGMusic = GameObject.Find("BGMusic"); //обращаемся к объекту, если он уже существует.
+            BGMusic = GameObject.Find("BGMusic");
         
         if (!PlayerPrefs.HasKey("MusicVol"))
-            musicVolume = 0.1f;  //тут громкость по умолчанию
+            musicVolume = 0.1f;
         else
         {
-            musicVolume = PlayerPrefs.GetFloat("MusicVol"); //сохраненная громкость
-            VolValue.value = PlayerPrefs.GetFloat("MusicVol"); //меняем значение слайдера на сохраненную громкость
+            musicVolume = PlayerPrefs.GetFloat("MusicVol");
+            VolValue.value = PlayerPrefs.GetFloat("MusicVol");
         }
     }
+
     private void Start()
     {
         audioSrc = BGMusic.GetComponent<AudioSource>();
@@ -40,13 +46,13 @@ public class VolumeValue : MonoBehaviour
 
     private void Update()
     {
-        audioSrc.volume = musicVolume;  //устанавливаем громкость при изменении слайдера
+        audioSrc.volume = musicVolume;
     }
 
     public void SetVolume(float vol)
     {
         musicVolume = vol;
-        PlayerPrefs.SetFloat("MusicVol", vol); //сохраняем громкость
+        PlayerPrefs.SetFloat("MusicVol", vol);
     }
 
     public void StopMusic()

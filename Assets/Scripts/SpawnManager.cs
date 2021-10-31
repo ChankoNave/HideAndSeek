@@ -14,12 +14,12 @@ public class SpawnManager : MonoBehaviour
 		spawnpointsManiac = GetComponentsInChildren<SpawnpointManiac>();
 	}
 
-	public Transform GetSpawnpointHiding() //2
+	public Transform GetSpawnpointHiding()
 	{
 		return spawnpointHiding[Random.Range(0, spawnpointHiding.Length)].transform;
 	}
 
-    public Transform GetSpawnpointManiac() //1
+    public Transform GetSpawnpointManiac()
     {
         return spawnpointsManiac[Random.Range(0, spawnpointsManiac.Length)].transform;
     }

@@ -19,7 +19,7 @@ public abstract class Item : MonoBehaviour
               weaponThis.SetActive(true);
 		checkOnGun = true;
 		pricelYes = true;
-		// Sound Plus Gun
+		// add Sound Plus Gun
 	}
 
 	public abstract void Use();

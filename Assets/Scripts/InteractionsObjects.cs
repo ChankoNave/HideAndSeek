@@ -14,7 +14,7 @@ public class InteractionsObjects : MonoBehaviour
         weaponThis = Random.Range(0, 8);
     }
 
-    private void OnCollisionEnter(Collision collision)//OnTriggerEnter(Collider other)
+    private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "Player")
             collision.gameObject.GetComponent<PlayerController>().InteractionsOn(weaponThis);

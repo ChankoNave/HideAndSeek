@@ -26,12 +26,10 @@ public class Launcher : MonoBehaviourPunCallbacks
 	[SerializeField]
 	Button startGame;
 
-
 	private void Awake()
 	{
 		inst = this;
 	}
-
 
 	private void Start()
 	{
@@ -42,7 +40,7 @@ public class Launcher : MonoBehaviourPunCallbacks
     public override void OnConnectedToMaster()
 	{
 		PhotonNetwork.JoinLobby();
-		PhotonNetwork.AutomaticallySyncScene = true; //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+		PhotonNetwork.AutomaticallySyncScene = true;
 	}
 
 	public override void OnJoinedLobby()
@@ -70,7 +68,7 @@ public class Launcher : MonoBehaviourPunCallbacks
 
 		foreach(Transform child in playerListContent)
 		{
-			//Destroy(child.gameObject);          /////////////////////////////////////
+			
 		}
 
 		for(int i = 0; i < players.Count(); i++)
@@ -134,7 +132,7 @@ public class Launcher : MonoBehaviourPunCallbacks
 	{
 		foreach(Transform trans in roomListContent)
 		{
-			//Destroy(trans.gameObject);             !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+			
 		}
 
 		for(int i = 0; i < roomList.Count; i++)

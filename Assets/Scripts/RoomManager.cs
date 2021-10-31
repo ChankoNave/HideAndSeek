@@ -5,17 +5,18 @@ using System.IO;
 
 public class RoomManager : MonoBehaviourPunCallbacks
 {
-	public static RoomManager Instance;
+	public static RoomManager inst;
 
-	void Awake()
+	private void Awake()
 	{
-		if(Instance)
+		if(inst)
 		{
 			Destroy(gameObject);
 			return;
 		}
 		DontDestroyOnLoad(gameObject);
-		Instance = this;
+
+		inst = this;
 	}
 
 	public override void OnEnable()
@@ -30,11 +31,9 @@ public class RoomManager : MonoBehaviourPunCallbacks
 		SceneManager.sceneLoaded -= OnSceneLoaded;
 	}
 
-	void OnSceneLoaded(Scene scene, LoadSceneMode loadSceneMode)
+	private void OnSceneLoaded(Scene scene, LoadSceneMode loadSceneMode)
 	{
-		if(scene.buildIndex == GameMeaning.SCENEFIRST) // We're in the game scene
-		{
+		if(scene.buildIndex == GameMeaning.SCENEFIRST)
 			PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", "PlayerManager"), Vector3.zero, Quaternion.identity);
-		}
 	}
 }

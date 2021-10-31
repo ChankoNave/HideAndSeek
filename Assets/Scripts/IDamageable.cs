@@ -1,6 +1,6 @@
 ﻿public interface IDamageable
 {
-	void TakeDamage(float damage);
+    void TakeDamage(float damage);
 
 	void Identifications(int teamId);
 

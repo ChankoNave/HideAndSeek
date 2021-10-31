@@ -49,8 +49,6 @@ public class PlayerController : MonoBehaviourPunCallbacks, IDamageable
 
     PlayerManager playerManager;
 
-    //public bool InteractionsLoots;
-
     public int TeamID;
 
     private float StepTimerDown, nowSpeed;
@@ -188,7 +186,7 @@ public class PlayerController : MonoBehaviourPunCallbacks, IDamageable
         grounded = _grounded;
     }
 
-    private void OnCollisionEnter(Collision collision)// OnTriggerEnter(Collider other)
+    private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "LootGun")
         {
@@ -202,7 +200,6 @@ public class PlayerController : MonoBehaviourPunCallbacks, IDamageable
         cameraPricel.SetActive(false);
         cameraHolder.SetActive(true);
 
-
         transform.Rotate(Vector3.up * Input.GetAxisRaw("Mouse X") * mouseSensitivity);
 
         verticalLookRotation += Input.GetAxisRaw("Mouse Y") * mouseSensitivity;
@@ -215,7 +212,6 @@ public class PlayerController : MonoBehaviourPunCallbacks, IDamageable
     {
         cameraHolder.SetActive(false);
         cameraPricel.SetActive(true);
-
 
         transform.Rotate(Vector3.up * Input.GetAxisRaw("Mouse X") * mouseSensitivity);
 
@@ -317,6 +313,7 @@ public class PlayerController : MonoBehaviourPunCallbacks, IDamageable
             isJump = true;
         }
     }
+
     public void JumpStop()
     {
         SoundManager.inst.JumpSound();
@@ -325,7 +322,6 @@ public class PlayerController : MonoBehaviourPunCallbacks, IDamageable
     #endregion
 
     #region Weapon Item
-
     private void CheckMines()
     {
         if (itemIndex == 4)
@@ -339,12 +335,10 @@ public class PlayerController : MonoBehaviourPunCallbacks, IDamageable
         {
             if (Input.GetKeyDown((i + 1).ToString()))
             {
-                EquipItem(i); // возможность включать оружее по цыфре на клавиатуре
+                EquipItem(i);
                 break;
             }
         }
-
-        Debug.Log(" Mines " + isMine + " ?  " + itemIndex + " ?/" + items.Length.ToString());
 
         if (Input.GetAxisRaw("Mouse ScrollWheel") > 0f)
         {
@@ -429,7 +423,7 @@ public class PlayerController : MonoBehaviourPunCallbacks, IDamageable
                 EquipItem(3);
                 break;
             case 4:
-                items[4].OpenWeapon(); //mine
+                items[4].OpenWeapon();
                 EquipItem(4);
                 break;
             case 5:
@@ -510,8 +504,6 @@ public class PlayerController : MonoBehaviourPunCallbacks, IDamageable
     {
         if (!PV.IsMine)
             return;
-
-        Debug.Log("Mine GGO");
     }
     #endregion
 

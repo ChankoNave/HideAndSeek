@@ -9,6 +9,7 @@ public class PauseMenu : MonoBehaviour
     [SerializeField] GameObject pausePanel, settinsPanel, shopPanels;
 
     PlayerController playerController;
+
     private void Awake()
     {
         inst = this;
@@ -26,13 +27,7 @@ public class PauseMenu : MonoBehaviour
     {
         Destroy(playerController);
         SceneManager.LoadScene(GameMeaning.MENU);
-        
     }
-
-    //public void OnMenu(Menu menu)
-    //{
-    //    menu.Open();
-    //}
 
     public void OpenSettings()
     {
@@ -52,7 +47,7 @@ public class PauseMenu : MonoBehaviour
         SoundManager.inst.PlayButton();
     }
 
-    void OnLeftRoom()
+    private void OnLeftRoom()
     {
         PhotonNetwork.LoadLevel(2);
     }
@@ -60,6 +55,6 @@ public class PauseMenu : MonoBehaviour
     public void QuitApp()
     {
         Application.Quit();
-        Debug.Log("Exit");
+        Debug.Log("Quit Game");
     }
 }

@@ -7,7 +7,7 @@ public class Mine : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             collision.gameObject.GetComponent<Rigidbody>().AddForce(new Vector3(0, 1111, 0));
-            // Add soung force
+            // Add sound force up
             Destroy(gameObject);
         }
     }

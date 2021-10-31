@@ -75,16 +75,6 @@ public class SoundManager : MonoBehaviour
 
     #endregion
 
-    #region VibrateSettings
-    public void Vibrate() // ÌÂ –¿¡Œ“¿≈“ Õ¿ œ ..
-    {
-        if (GameManager.inst.VibrationSettings)
-        {
-            //Handheld.Vibrate();
-        }
-    }
-    #endregion
-
     #region GameSound
 
     public void StepSound()

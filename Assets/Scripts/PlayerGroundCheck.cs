@@ -4,7 +4,6 @@ public class PlayerGroundCheck : MonoBehaviour
 {
 	PlayerController playerController;
 
-
 	private void Awake()
 	{
 		playerController = GetComponentInParent<PlayerController>();

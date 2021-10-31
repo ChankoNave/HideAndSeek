@@ -15,17 +15,16 @@ public class SingleShotGun : Gun
 	{
 		PV = GetComponent<PhotonView>();
 	}
+
     #region Shoot
     public override void Use()
 	{
 		Shoot();
-		Debug.Log(" Mines  Shoot ");
 	}
 
     public override void InstMines()
     {
 		ShootMines();
-		Debug.Log(" Mines  Mines ");
 	}
 
     public override void UsePricel()
@@ -67,7 +66,7 @@ public class SingleShotGun : Gun
                     PV.RPC("RPC_Shoot", RpcTarget.All, hit.point, hit.normal);
                     break;
                 case 2:
-                    hit.collider.gameObject.GetComponent<IDamageable>()?.MineActives(); //TakeDamage(((GunInfo)itemInfo).damage);
+                    hit.collider.gameObject.GetComponent<IDamageable>()?.MineActives();
                     PV.RPC("RPC_Mine", RpcTarget.All, hit.point, hit.normal);
                     break;
                 case 3:

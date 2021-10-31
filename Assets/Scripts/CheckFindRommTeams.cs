@@ -6,10 +6,10 @@ public class CheckFindRommTeams : MonoBehaviour
     public static CheckFindRommTeams inst;
 
     [SerializeField]
-    GameObject panelTeams;
+    private GameObject panelTeams;
 
     [SerializeField]
-    Button connectButton;
+    private Button connectButton;
 
     private void Awake()
     {

@@ -26,7 +26,7 @@ public class LevelController : MonoBehaviour
 		FindPlayersScene();
 	}
 
-	async void FindPlayersScene()
+	private async void FindPlayersScene()
 	{
 		await Task.Delay(GameMeaning.FINDPLAYERFORSCENE);
 		player = FindObjectOfType<PlayerController>();
@@ -46,7 +46,6 @@ public class LevelController : MonoBehaviour
 			SoundManager.inst.PlayButton();
 			player.gameObject.GetComponent<SkinnedMeshRenderer>().enabled = false;
 			player.gameObject.GetComponent<PlayerController>().enabled = false;
-			//player.gameObject.GetComponentInChildren<AudioListener>().enabled = false;
 		}
 	}
 
@@ -55,6 +54,5 @@ public class LevelController : MonoBehaviour
 		Cursor.visible = false;
 		player.gameObject.GetComponent<SkinnedMeshRenderer>().enabled = true;
 		player.gameObject.GetComponent<PlayerController>().enabled = true;
-		//player.gameObject.GetComponentInChildren<AudioListener>().enabled = true;
 	}
 }

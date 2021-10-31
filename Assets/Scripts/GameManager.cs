@@ -8,21 +8,15 @@ public class GameManager : MonoBehaviour
     {
         inst = this;
     }
+
     #region Sound Settings
     private const string SOUND_SETTINGS = "SoundSettings";
-    private const string VIBRATION_SETTING = "VibrationSettings";
     private const string MUSIC_SETTINGS = "MusicSettings";
 
     public bool SoundSettings
     {
         get => PlayerPrefs.GetInt(SOUND_SETTINGS, 1) == 1;
         set => PlayerPrefs.SetInt(SOUND_SETTINGS, value ? 1 : 0);
-    }
-
-    public bool VibrationSettings //kill this functions
-    {
-        get => PlayerPrefs.GetInt(VIBRATION_SETTING, 1) == 1;
-        set => PlayerPrefs.SetInt(VIBRATION_SETTING, value ? 1 : 0);
     }
 
     public bool MusicSettings

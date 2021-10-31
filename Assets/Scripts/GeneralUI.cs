@@ -27,13 +27,13 @@ public class GeneralUI : MonoBehaviour
     private void Update()
     {
         UpdateSoundsUI();
-        //UpdateVibrationUI();
         UpdateMusiconUI();
     }
 
     public void ButtonSoundOnOff()
     {
         SoundManager.inst.PlayButton();
+
         if (GameManager.inst.SoundSettings)
             GameManager.inst.SoundSettings = false;
         else
@@ -82,33 +82,17 @@ public class GeneralUI : MonoBehaviour
         }
     }
 
-    //private void UpdateVibrationUI()
-    //{
-    //    if (GameManager.inst.VibrationSettings)
-    //    {
-    //        vibrateOn.SetActive(true);
-    //        vibrateOff.SetActive(false);
-    //    }
-    //    else
-    //    {
-    //        vibrateOn.SetActive(false);
-    //        vibrateOff.SetActive(true);
-    //    }
-    //}
-
     private void UpdateMusiconUI()
     {
         if (GameManager.inst.MusicSettings)
         {
             musicOn.SetActive(true);
             musicOff.SetActive(false);
-            //PlayerController.inst.gromkost = 0f;
         }
         else
         {
             musicOn.SetActive(false);
             musicOff.SetActive(true);
-            //PlayerController.inst.gromkost = 0.1f;
         }
     }
 }

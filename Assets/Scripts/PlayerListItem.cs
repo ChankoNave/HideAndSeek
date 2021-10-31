@@ -6,6 +6,7 @@ using UnityEngine;
 public class PlayerListItem : MonoBehaviourPunCallbacks
 {
 	[SerializeField] TMP_Text text;
+
 	Player player;
 
 	public void SetUp(Player _player)
@@ -17,9 +18,7 @@ public class PlayerListItem : MonoBehaviourPunCallbacks
 	public override void OnPlayerLeftRoom(Player otherPlayer)
 	{
 		if(player == otherPlayer)
-		{
 			Destroy(gameObject);
-		}
 	}
 
 	public override void OnLeftRoom()
