@@ -2,21 +2,22 @@
 
 public abstract class Item : MonoBehaviour
 {
-	public ItemInfo itemInfo;
+	internal ItemInfo itemInfo;
 
 	public GameObject itemGameObject;
 
 	[SerializeField]
 	private GameObject weaponThis;
 
-	public bool pricelYes;
+	internal bool pricelYes;
 
-	public bool checkOnGun;
+	internal bool checkOnGun;
 
     public void OpenWeapon()
 	{
 		if (weaponThis != null)
               weaponThis.SetActive(true);
+
 		checkOnGun = true;
 		pricelYes = true;
 		// add Sound Plus Gun

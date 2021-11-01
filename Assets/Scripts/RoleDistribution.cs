@@ -1,6 +1,8 @@
 using UnityEngine;
 using Photon.Pun;
 
+
+[RequireComponent (typeof(PhotonView))]
 public class RoleDistribution : MonoBehaviour
 {
     PlayerController player;

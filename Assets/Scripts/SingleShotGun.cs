@@ -1,6 +1,7 @@
 ﻿using Photon.Pun;
 using UnityEngine;
 
+[RequireComponent(typeof(PhotonView))]
 public class SingleShotGun : Gun
 {
 	[SerializeField]

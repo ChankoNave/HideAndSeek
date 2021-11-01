@@ -1,8 +1,8 @@
 ﻿public interface IDamageable
 {
-    void TakeDamage(float damage);
+    public void TakeDamage(float damage);
 
-	void Identifications(int teamId);
+	public void Identifications(int teamId);
 
-	void MineActives();
+	public void MineActives();
 }

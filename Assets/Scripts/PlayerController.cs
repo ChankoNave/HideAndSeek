@@ -379,7 +379,6 @@ public class PlayerController : MonoBehaviourPunCallbacks, IDamageable
         }
     }
 
-
     public void EquipItem(int _index)
     {
         if (_index == previousItemIndex)

@@ -6,7 +6,8 @@ public class PauseMenu : MonoBehaviour
 {
     public static PauseMenu inst;
 
-    [SerializeField] GameObject pausePanel, settinsPanel, shopPanels;
+    [SerializeField]
+    GameObject pausePanel, settinsPanel, shopPanels;
 
     PlayerController playerController;
 

@@ -5,6 +5,7 @@ using UnityEngine;
 public class Ticker : MonoBehaviour
 {
     public static Ticker inst;
+
     public static Action OnTick;
 
     private void Start()

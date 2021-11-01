@@ -10,6 +10,7 @@ public class SpawnManager : MonoBehaviour
 	private void Awake()
 	{
 		inst = this;
+
 		spawnpointHiding = GetComponentsInChildren<SpawnpointHiding>();
 		spawnpointsManiac = GetComponentsInChildren<SpawnpointManiac>();
 	}

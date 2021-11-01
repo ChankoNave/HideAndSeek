@@ -17,7 +17,7 @@ public class RoomListItem : MonoBehaviour
 	public void OnClick()
 	{
 		if (GameMeaning.teamID == 1 || GameMeaning.teamID == 2)
-			Launcher.inst.JoinRoom(info);
+			Launcher.inst?.JoinRoom(info);
 		else
 			CheckFindRommTeams.inst?.OnClickCheckTeams();
 	}
