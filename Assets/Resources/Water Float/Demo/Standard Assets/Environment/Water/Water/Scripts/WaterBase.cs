@@ -45,10 +45,10 @@ namespace UnityStandardAssets.Water
                 Shader.EnableKeyword("WATER_EDGEBLEND_ON");
                 Shader.DisableKeyword("WATER_EDGEBLEND_OFF");
                 // just to make sure (some peeps might forget to add a water tile to the patches)
-                if (Camera.main)
-                {
-                    Camera.main.depthTextureMode |= DepthTextureMode.Depth;
-                }
+                //if (Camera.main)
+                //{
+                //   // Camera.main.depthTextureMode |= DepthTextureMode.Depth;
+                //}
             }
             else
             {
@@ -58,13 +58,13 @@ namespace UnityStandardAssets.Water
         }
 
 
-        public void WaterTileBeingRendered(Transform tr, Camera currentCam)
-        {
-            if (currentCam && edgeBlend)
-            {
-                currentCam.depthTextureMode |= DepthTextureMode.Depth;
-            }
-        }
+        //public void WaterTileBeingRendered(Transform tr, Camera currentCam)
+        //{
+        //    if (currentCam && edgeBlend)
+        //    {
+        //        currentCam.depthTextureMode |= DepthTextureMode.Depth;
+        //    }
+        //}
 
 
         public void Update()

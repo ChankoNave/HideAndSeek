@@ -1,10 +1,14 @@
 ﻿using Photon.Pun;
 using Photon.Realtime;
 using System.Threading.Tasks;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using Hashtable = ExitGames.Client.Photon.Hashtable;
 
+[RequireComponent(typeof(PhotonView))]
+[RequireComponent (typeof(Rigidbody))]
+[RequireComponent(typeof(Animator))]
 public class PlayerController : MonoBehaviourPunCallbacks, IDamageable
 {
     #region Variables
@@ -13,7 +17,7 @@ public class PlayerController : MonoBehaviourPunCallbacks, IDamageable
     [SerializeField]
     Image healthbarImage;
     [SerializeField]
-    Text timeGame;
+    TextMeshProUGUI timeGame;
     [SerializeField]
     GameObject ui;
     [SerializeField]
@@ -81,7 +85,6 @@ public class PlayerController : MonoBehaviourPunCallbacks, IDamageable
     private void Awake()
     {
         inst = this;
-
         rb = GetComponent<Rigidbody>();
         PV = GetComponent<PhotonView>();
         _anim = GetComponent<Animator>();
