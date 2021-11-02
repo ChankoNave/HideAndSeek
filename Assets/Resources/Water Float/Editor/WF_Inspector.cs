@@ -2,7 +2,7 @@
 using UnityEditor;
 
 [CanEditMultipleObjects]
-[CustomEditor(typeof(WaterFloat))]
+[CustomEditor(typeof(WaterFloatOne))]
 
 public class WF_Inspector : Editor
 {
@@ -23,7 +23,7 @@ public class WF_Inspector : Editor
 
     public override void OnInspectorGUI(){
         GUILayout.Box(Resources.Load("WF_Poster") as Texture, GUILayout.Width(400), GUILayout.Height(214));
-        WaterFloat script = (WaterFloat)target;
+        WaterFloatOne script = (WaterFloatOne)target;
 
         EditorGUILayout.HelpBox("If you like this asset please don't forget to leave a nice review. It helps alot.", MessageType.Info);
         EditorGUILayout.Space();
