@@ -9,15 +9,23 @@ public class RoomManager : MonoBehaviourPunCallbacks
 
 	private void Awake()
 	{
-		if(inst)
-		{
-			Destroy(gameObject);
-			return;
-		}
-		DontDestroyOnLoad(gameObject);
+        if (inst)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        DontDestroyOnLoad(gameObject);
 
-		inst = this;
+        inst = this;
+
+		Debug.Log("Awakes q");
 	}
+
+	public void DestroyGame()
+    {
+		Destroy(gameObject);
+		Debug.Log("Awakes - Destroy now");
+    }
 
 	public override void OnEnable()
 	{

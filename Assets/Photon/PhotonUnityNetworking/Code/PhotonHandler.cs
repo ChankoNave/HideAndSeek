@@ -79,7 +79,7 @@ namespace Photon.Pun
             }
             else
             {
-                Destroy(this);
+               // Destroy(this); !!!!!!!!!!!!!!!!!!!
             }
         }
 

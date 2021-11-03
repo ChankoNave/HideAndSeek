@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.PostProcessing;
 
 namespace UnityEditor.PostProcessing
 {
@@ -21,9 +20,7 @@ namespace UnityEditor.PostProcessing
                 property.floatValue = Mathf.Max(v, attribute.min);
             }
             else
-            {
                 EditorGUI.LabelField(position, label.text, "Use Min with float or int.");
-            }
         }
     }
 }

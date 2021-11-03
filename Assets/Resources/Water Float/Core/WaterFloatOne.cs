@@ -17,8 +17,7 @@ public class WaterFloatOne : MonoBehaviour
         actualPos = transform;
     }
 
-    
-    void Update () 
+    private void Update () 
     {
         //change axis
         Vector3 mov = new Vector3 (

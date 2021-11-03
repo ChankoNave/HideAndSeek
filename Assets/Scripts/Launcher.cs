@@ -29,6 +29,7 @@ public class Launcher : MonoBehaviourPunCallbacks
 	private void Awake()
 	{
 		inst = this;
+		PhotonNetwork.Disconnect();
 	}
 
 	private void Start()

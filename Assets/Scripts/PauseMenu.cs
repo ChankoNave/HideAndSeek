@@ -1,8 +1,8 @@
-using Photon.Pun;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Photon.Pun;
 
-public class PauseMenu : MonoBehaviour
+public class PauseMenu : MonoBehaviourPunCallbacks
 {
     public static PauseMenu inst;
 
@@ -11,10 +11,13 @@ public class PauseMenu : MonoBehaviour
 
     PlayerController playerController;
 
+    PhotonView PV;
+
     private void Awake()
     {
         inst = this;
         playerController = FindObjectOfType<PlayerController>();
+        PV = FindObjectOfType<PhotonView>();
     }
 
     public void Continue()
@@ -24,10 +27,12 @@ public class PauseMenu : MonoBehaviour
         pausePanel.SetActive(false);
     }
 
-    public void Menu() // TODO Допилить!!
+    public void Menu()
     {
-        Destroy(playerController);
-        SceneManager.LoadScene(GameMeaning.MENU);
+        BGMusic.inst.DestroyGame();
+        RoomManager.inst.DestroyGame();
+        //TODO Qiut to Menu//
+        SceneManager.LoadScene(0);
     }
 
     public void OpenSettings()
@@ -48,14 +53,8 @@ public class PauseMenu : MonoBehaviour
         SoundManager.inst.PlayButton();
     }
 
-    private void OnLeftRoom()
-    {
-        PhotonNetwork.LoadLevel(2);
-    }
-
     public void QuitApp()
     {
         Application.Quit();
-        Debug.Log("Quit Game");
     }
 }

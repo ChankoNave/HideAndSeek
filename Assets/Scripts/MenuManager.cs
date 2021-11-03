@@ -71,6 +71,12 @@ public class MenuManager : MonoBehaviour
 		settingPanel.SetActive(false);
 	}
 
+	public void SinglePlayer()
+	{
+		SoundManager.inst.PlayButton();
+		SceneManager.LoadScene("GameScene2");
+	}
+
 	public async void Quit()
     {
 		SoundManager.inst.PlayButton();
