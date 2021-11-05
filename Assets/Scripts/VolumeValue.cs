@@ -5,15 +5,18 @@ public class VolumeValue : MonoBehaviour
 {
     public static VolumeValue inst;
 
-    public GameObject BGMusic;
+    [SerializeField]
+    GameObject BGMusic;
 
     private AudioSource audioSrc;
 
     public static float musicVolume;
 
-    public Slider VolValue;
+    [SerializeField]
+    Slider VolValue;
 
-    public GameObject[] objs1;
+    [SerializeField]
+    GameObject[] objs1;
 
     private void Awake()
     {

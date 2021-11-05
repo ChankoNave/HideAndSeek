@@ -13,13 +13,6 @@ public class LevelController : MonoBehaviour
     private void Awake()
     {
 		inst = this;
-		//if (inst == null)
-		//{
-		//	inst = this;
-		//	DontDestroyOnLoad(gameObject);
-		//}
-		//else
-		//	Destroy(gameObject);
 	}
 
     private void Start()

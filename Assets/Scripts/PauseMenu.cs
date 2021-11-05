@@ -9,16 +9,9 @@ public class PauseMenu : MonoBehaviourPunCallbacks
     [SerializeField]
     GameObject pausePanel, settinsPanel, shopPanels;
 
-    PlayerController playerController;
-
-    PhotonView PV;
-
     private void Awake()
     {
         inst = this;
-        playerController = FindObjectOfType<PlayerController>();
-        PV = FindObjectOfType<PhotonView>();
-        //DontDestroyOnLoad(inst);
     }
 
     public void Continue()
@@ -28,11 +21,8 @@ public class PauseMenu : MonoBehaviourPunCallbacks
         pausePanel.SetActive(false);
     }
 
-    public void Menu()
-    {
-        //BGMusic.inst.DestroyGame();
-        //RoomManager.inst.DestroyGame();
-        //TODO Qiut to Menu//
+    public void Menu() 
+    { 
         SceneManager.LoadScene(2);
     }
 

@@ -44,7 +44,9 @@ public static class GameMeaning
     #region Menu
     public static bool hasPickedTeam; 
     public static int teamID;
+    public static int timingNewScenes = 1000;
     public static int QuitGame = 120;
+
     #endregion
 
     #region Game Process (in Scene)

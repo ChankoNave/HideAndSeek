@@ -24,6 +24,10 @@ public class PlayerController : MonoBehaviourPunCallbacks, IDamageable
     GameObject cameraHolder;
     [SerializeField]
     GameObject cameraPricel;
+    [SerializeField]
+    GameObject loadingPanel;
+
+    private bool gameNow;
 
     private bool pricelNow, isMine;
 
@@ -125,6 +129,8 @@ public class PlayerController : MonoBehaviourPunCallbacks, IDamageable
             Destroy(rb);
             Destroy(ui);
         }
+
+        gameNow = true;
     }
 
     private void FixedUpdate()
@@ -146,12 +152,15 @@ public class PlayerController : MonoBehaviourPunCallbacks, IDamageable
         else
             LookInPricel();
 
-        CheckMines();
-        Move();
-        Jump();
-        LifeControlls();
-        SoundsControll();
-        WeaponController();
+        if (gameNow)
+        {
+            CheckMines();
+            Move();
+            Jump();
+            LifeControlls();
+            SoundsControll();
+            WeaponController();
+        }
     }
     #endregion
 
@@ -241,6 +250,18 @@ public class PlayerController : MonoBehaviourPunCallbacks, IDamageable
 
         await Task.Delay(GameMeaning.DIETIME);
         playerManager.Die();
+    }
+
+    internal void LoadingNewScenesOn()
+    {
+        gameNow = false;
+        loadingPanel.SetActive(true);
+    }
+
+    internal void LoadingNewScenesOff()
+    {
+        gameNow = true;
+        loadingPanel.SetActive(false);
     }
     #endregion
 
