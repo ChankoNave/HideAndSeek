@@ -18,6 +18,7 @@ public class PauseMenu : MonoBehaviourPunCallbacks
         inst = this;
         playerController = FindObjectOfType<PlayerController>();
         PV = FindObjectOfType<PhotonView>();
+        //DontDestroyOnLoad(inst);
     }
 
     public void Continue()
@@ -29,10 +30,10 @@ public class PauseMenu : MonoBehaviourPunCallbacks
 
     public void Menu()
     {
-        BGMusic.inst.DestroyGame();
-        RoomManager.inst.DestroyGame();
+        //BGMusic.inst.DestroyGame();
+        //RoomManager.inst.DestroyGame();
         //TODO Qiut to Menu//
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(2);
     }
 
     public void OpenSettings()

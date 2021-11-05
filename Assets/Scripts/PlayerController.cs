@@ -89,6 +89,7 @@ public class PlayerController : MonoBehaviourPunCallbacks, IDamageable
         PV = GetComponent<PhotonView>();
         _anim = GetComponent<Animator>();
         playerManager = PhotonView.Find((int)PV.InstantiationData[0]).GetComponent<PlayerManager>();
+        DontDestroyOnLoad(gameObject);
     }
 
     private void Start()

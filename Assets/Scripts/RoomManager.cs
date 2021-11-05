@@ -15,16 +15,12 @@ public class RoomManager : MonoBehaviourPunCallbacks
             return;
         }
         DontDestroyOnLoad(gameObject);
-
         inst = this;
-
-		Debug.Log("Awakes q");
 	}
 
 	public void DestroyGame()
     {
 		Destroy(gameObject);
-		Debug.Log("Awakes - Destroy now");
     }
 
 	public override void OnEnable()
