@@ -229,7 +229,7 @@ public class PlayerController : MonoBehaviourPunCallbacks, IDamageable
         transform.Rotate(Vector3.up * Input.GetAxisRaw("Mouse X") * mouseSensitivity);
 
         verticalLookRotation += Input.GetAxisRaw("Mouse Y") * mouseSensitivity;
-        verticalLookRotation = Mathf.Clamp(verticalLookRotation, -40f, 40f);
+        verticalLookRotation = Mathf.Clamp(verticalLookRotation, -100f, 100f);
 
         cameraPricel.transform.localEulerAngles = Vector3.left * verticalLookRotation;
     }
