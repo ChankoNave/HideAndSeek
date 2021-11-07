@@ -1,17 +1,21 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Photon.Pun;
+using System.Threading.Tasks;
+using Photon.Realtime;
 
-public class PauseMenu : MonoBehaviourPunCallbacks
+public class PauseMenu : MonoBehaviour
 {
     public static PauseMenu inst;
 
     [SerializeField]
     GameObject pausePanel, settinsPanel, shopPanels;
+    new PhotonView photonView;
 
     private void Awake()
     {
         inst = this;
+        photonView = GetComponent<PhotonView>();
     }
 
     public void Continue()
@@ -22,7 +26,10 @@ public class PauseMenu : MonoBehaviourPunCallbacks
     }
 
     public void Menu() 
-    { 
+    {
+        PlayerController.inst.DisablePlayer();
+        PlayerManager.inst.DisconnectController();
+        //PlayerController.inst.DisablePlayer();
         SceneManager.LoadScene(2);
     }
 

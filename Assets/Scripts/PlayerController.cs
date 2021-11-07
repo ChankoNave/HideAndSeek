@@ -263,6 +263,11 @@ public class PlayerController : MonoBehaviourPunCallbacks, IDamageable
         gameNow = true;
         loadingPanel.SetActive(false);
     }
+
+    internal void DisablePlayer()
+    {
+        Destroy(gameObject);
+    }
     #endregion
 
     #region Moved Controlls

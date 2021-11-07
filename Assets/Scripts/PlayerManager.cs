@@ -80,4 +80,9 @@ public class PlayerManager : MonoBehaviour
         PhotonNetwork.Destroy(controller);
         Collectors();
     }
+
+    public void DisconnectController()
+    {
+        PhotonNetwork.Destroy(controller);
+    }
 }
