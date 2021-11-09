@@ -11980,6 +11980,42 @@ PrefabInstance:
       propertyPath: m_Name
       value: MapLevel1
       objectReference: {fileID: 0}
+    - target: {fileID: 6273158395775472261, guid: c4989d640054a4142b5d8a7cebc562e7, type: 3}
+      propertyPath: m_TagString
+      value: Metal
+      objectReference: {fileID: 0}
+    - target: {fileID: 6273158396062793367, guid: c4989d640054a4142b5d8a7cebc562e7, type: 3}
+      propertyPath: m_TagString
+      value: Metal
+      objectReference: {fileID: 0}
+    - target: {fileID: 6273158396076525146, guid: c4989d640054a4142b5d8a7cebc562e7, type: 3}
+      propertyPath: m_TagString
+      value: Metal
+      objectReference: {fileID: 0}
+    - target: {fileID: 6273158396406678164, guid: c4989d640054a4142b5d8a7cebc562e7, type: 3}
+      propertyPath: m_TagString
+      value: Metal
+      objectReference: {fileID: 0}
+    - target: {fileID: 6273158397025864645, guid: c4989d640054a4142b5d8a7cebc562e7, type: 3}
+      propertyPath: m_TagString
+      value: Metal
+      objectReference: {fileID: 0}
+    - target: {fileID: 6273158397731945420, guid: c4989d640054a4142b5d8a7cebc562e7, type: 3}
+      propertyPath: m_TagString
+      value: Metal
+      objectReference: {fileID: 0}
+    - target: {fileID: 6273158398207493870, guid: c4989d640054a4142b5d8a7cebc562e7, type: 3}
+      propertyPath: m_TagString
+      value: Metal
+      objectReference: {fileID: 0}
+    - target: {fileID: 6273158398270156757, guid: c4989d640054a4142b5d8a7cebc562e7, type: 3}
+      propertyPath: m_TagString
+      value: Metal
+      objectReference: {fileID: 0}
+    - target: {fileID: 6273158398799328894, guid: c4989d640054a4142b5d8a7cebc562e7, type: 3}
+      propertyPath: m_TagString
+      value: Beton
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c4989d640054a4142b5d8a7cebc562e7, type: 3}
 --- !u!4 &6272724634116960797 stripped

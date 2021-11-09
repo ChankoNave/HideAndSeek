@@ -58,8 +58,6 @@ public class SingleShotGun : Gun
     {
         if (Physics.Raycast(ray, out RaycastHit hit))
         {
-            SoundManager.inst.ShootPistolSound();
-
             switch (shootType)
             {
                 case 1:
@@ -72,7 +70,7 @@ public class SingleShotGun : Gun
                     break;
                 case 3:
                     hit.collider.gameObject.GetComponent<IDamageable>()?.Identifications(((GunInfo)itemInfo).id);
-                    PV.RPC("RPC_Shhot2", RpcTarget.All, hit.point, hit.normal);
+                    PV.RPC("RPC_ShootisPricel", RpcTarget.All, hit.point, hit.normal);
                     break;
             }
         }
@@ -91,6 +89,7 @@ public class SingleShotGun : Gun
 			Quaternion.LookRotation(hitNormal, Vector3.up) * bulletImpactPrefab.transform.rotation);
 			Destroy(bulletImpactObj, GameMeaning.BULLETDRAWINGTIME);
 			bulletImpactObj.transform.SetParent(colliders[0].transform);
+			SoundManager.inst?.ShootPistolSound();
 		}
 	}
 
@@ -101,7 +100,7 @@ public class SingleShotGun : Gun
     }
 
 	[PunRPC]
-	private void RPC_Shhot2 (Vector3 hitPosition, Vector3 hitNormal)
+	private void RPC_ShootisPricel(Vector3 hitPosition, Vector3 hitNormal)
     {
 		Collider[] colliders = Physics.OverlapSphere(hitPosition, 0.3f);
 
@@ -111,6 +110,7 @@ public class SingleShotGun : Gun
 			Quaternion.LookRotation(hitNormal, Vector3.up) * bulletImpactPrefab.transform.rotation);
 			Destroy(bulletImpactObj, GameMeaning.BULLETDRAWINGTIME);
 			bulletImpactObj.transform.SetParent(colliders[0].transform);
+			SoundManager.inst?.ShootPistolSound();
 		}
 	}
     #endregion

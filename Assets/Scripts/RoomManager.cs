@@ -14,9 +14,9 @@ public class RoomManager : MonoBehaviourPunCallbacks
             Destroy(gameObject);
             return;
         }
+
         DontDestroyOnLoad(gameObject);
         inst = this;
-		
 	}
 
 	public void DestroyGame()
@@ -40,6 +40,5 @@ public class RoomManager : MonoBehaviourPunCallbacks
 	{
 		if(scene.buildIndex == GameMeaning.SCENEFIRST)
 			PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", "PlayerManager"), Vector3.zero, Quaternion.identity);
-		Debug.Log("SDFse " + scene + " fds " + loadSceneMode);
 	}
 }

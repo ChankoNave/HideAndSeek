@@ -20,7 +20,6 @@ public abstract class Item : MonoBehaviour
 
 		checkOnGun = true;
 		pricelYes = true;
-		// add Sound Plus Gun
 	}
 
 	public abstract void Use();

@@ -23,7 +23,6 @@ public class GeneralUI : MonoBehaviour
             inst = this;
     }
 
-
     private void Update()
     {
         UpdateSoundsUI();

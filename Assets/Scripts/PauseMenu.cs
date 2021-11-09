@@ -29,7 +29,6 @@ public class PauseMenu : MonoBehaviour
     {
         PlayerController.inst.DisablePlayer();
         PlayerManager.inst.DisconnectController();
-        //PlayerController.inst.DisablePlayer();
         SceneManager.LoadScene(2);
     }
 

@@ -39,6 +39,7 @@ MonoBehaviour:
   - RPC_TeamID
   - RPC_Mine
   - RPC_MineGo
+  - RPC_ShootisPricel
   DisableAutoOpenWizard: 1
   ShowSettings: 1
   DevRegionSetOnce: 1
