@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 901965144548074534}
   m_Layer: 8
   m_Name: Prop_Boat_A
-  m_TagString: Untagged
+  m_TagString: Wood
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 16
@@ -107,7 +107,7 @@ GameObject:
   - component: {fileID: 2310144}
   m_Layer: 8
   m_Name: lo_Prop_Boat_A_LOD1
-  m_TagString: Untagged
+  m_TagString: Wood
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 16
@@ -190,7 +190,7 @@ GameObject:
   - component: {fileID: 2353594}
   m_Layer: 8
   m_Name: lo_Prop_Boat_A_LOD2
-  m_TagString: Untagged
+  m_TagString: Wood
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 16
@@ -273,7 +273,7 @@ GameObject:
   - component: {fileID: 2376696}
   m_Layer: 8
   m_Name: lo_Prop_Boat_A_LOD0
-  m_TagString: Untagged
+  m_TagString: Wood
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 16
