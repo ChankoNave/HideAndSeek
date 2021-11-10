@@ -157,7 +157,8 @@ public class PlayerController : MonoBehaviourPunCallbacks, IDamageable
             CheckMines();
             Move();
             Jump();
-            LifeControlls();
+            HeightCheck();
+            LifeControls();
             SoundsControll();
             WeaponController();
         }
@@ -194,66 +195,62 @@ public class PlayerController : MonoBehaviourPunCallbacks, IDamageable
         weaponThisNow = weaponThis;
     }
 
-    //private void HeightCheck()
-    //{
-    //    if (Physics.Raycast(raicast.transform.position, -Vector3.up, out hit, 300))
-    //    {
-    //        if (hit.distance >= 6 && hit.distance <= 15)
-    //        {
-    //            currentHealth -= 20f;
-    //            Debug.Log("Health -20 " + currentHealth);
-    //        }
-    //        if (hit.distance >= 16 && hit.distance <= 25)
-    //        {
-    //            currentHealth -= 50f;
-    //            Debug.Log("Health -50 " + currentHealth);
-    //        }
-    //        if (hit.distance >= 26 && hit.distance <= 45)
-    //        {
-    //            currentHealth -= 100f;
-    //            Debug.Log("Health -100 " + currentHealth);
-    //        }
-    //        if (hit.distance >= 46 && hit.distance <= 65)
-    //        {
-    //            currentHealth -= 200f;
-    //            Debug.Log("Health -200 " + currentHealth);
-    //        }
-    //        if (hit.distance >= 66 && hit.distance <= 150)
-    //        {
-    //            Die();
-    //            Debug.Log("Health -die " + currentHealth);
-    //        }
+    private float damageCurrent { get; set; }
+    private bool checkDamageOne, checkDamageTwo, checkDamageThree, checkDamageFour, checkDamageFive;
 
-    //        healthbarImage.fillAmount = currentHealth;
-    //    }
-
-    //Ray ray = new Ray(transform.position, transform.forward); // TODO Add graviGun
-
-    //if (Physics.Raycast(ray, out RaycastHit raycastHit, rayDistanse))
-    //{
-    //    Debug.Log(raycastHit.collider.name);
-
-    //    RaycastHit hit;
-    //    //TODO передедать на подписки
-    //    //if (TurretsWeaponsPanel.inst.fuseTractorBeam)
-    //    //{
-    //    //    if (Mouse.current.leftButton.isPressed)
-    //    //        if (Physics.Raycast(ray, out hit))
-    //    //            if (hit.rigidbody != null)
-    //    //                hit.rigidbody.AddForce(-transform.forward * powerAttraction);
-
-    //    //    if (Mouse.current.rightButton.isPressed)
-    //    //        if (Physics.Raycast(ray, out hit))
-    //    //            if (hit.rigidbody != null)
-    //    //                hit.rigidbody.AddForce(transform.forward * powerAttraction);
-    //    //}
-    //}
-
-    //}
+    private void HeightCheck()
+    {
+        if (Physics.Raycast(raicast.transform.position, -Vector3.up, out hit, 300))
+        {
+            if (hit.distance >= 6 && hit.distance <= 15 && !checkDamageOne)
+            {
+                damageCurrent += 20f;
+                checkDamageOne = true;
+                Debug.Log("Health -20 " + currentHealth);
+            }
+            if (hit.distance >= 16 && hit.distance <= 25 && !checkDamageTwo)
+            {
+                damageCurrent += 50f;
+                checkDamageTwo = true;
+                Debug.Log("Health -50 " + currentHealth);
+            }
+            if (hit.distance >= 26 && hit.distance <= 45 && !checkDamageThree)
+            {
+                damageCurrent += 100f;
+                checkDamageThree = true;
+                Debug.Log("Health -100 " + currentHealth);
+            }
+            if (hit.distance >= 46 && hit.distance <= 65 && !checkDamageFour)
+            {
+                damageCurrent += 200f;
+                checkDamageFour = true;
+                Debug.Log("Health -200 " + currentHealth);
+            }
+            if (hit.distance >= 66 && hit.distance <= 1500 && !checkDamageFive)
+            {
+                checkDamageFive = true;
+                Debug.Log("Health -die " + currentHealth);
+            }
+            Debug.Log("Damage 0 + " + damageCurrent);
+        }
+    }
 
     public void SetGroundedState(bool _grounded)
     {
-        grounded = _grounded;
+        if (grounded)
+        {
+            grounded = _grounded;
+            checkDamageOne = checkDamageTwo = checkDamageThree = checkDamageFour = checkDamageFive = false;
+            currentHealth -= damageCurrent;
+            damageCurrent = 0;
+            Debug.Log("Damage 1+ " + damageCurrent);
+        }
+        else
+        {
+            Debug.Log("Damage + " + damageCurrent);
+            
+        }
+        
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -291,12 +288,17 @@ public class PlayerController : MonoBehaviourPunCallbacks, IDamageable
         cameraPricel.transform.localEulerAngles = Vector3.left * verticalLookRotation;
     }
 
-    private void LifeControlls()
+    private void LifeControls()
     {
         if (transform.position.y < -100f)
             Die();
 
         if (transform.position.y > 300f)
+            Die();
+
+        healthbarImage.fillAmount = currentHealth / GameMeaning.MAXHEALTHPLAYER;
+
+        if (currentHealth <= 0)
             Die();
     }
 

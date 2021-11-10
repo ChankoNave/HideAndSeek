@@ -242,7 +242,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 69
+  controlID: 31
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -305,7 +305,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 1
   m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: ProjectBrowser
+  m_Name: ConsoleWindow
   m_EditorClassIdentifier: 
   m_Children: []
   m_Position:
@@ -314,14 +314,14 @@ MonoBehaviour:
     y: 0
     width: 928
     height: 403
-  m_MinSize: {x: 231, y: 271}
-  m_MaxSize: {x: 10001, y: 10021}
-  m_ActualView: {fileID: 22}
+  m_MinSize: {x: 101, y: 121}
+  m_MaxSize: {x: 4001, y: 4021}
+  m_ActualView: {fileID: 23}
   m_Panes:
   - {fileID: 22}
   - {fileID: 23}
-  m_Selected: 0
-  m_LastSelected: 1
+  m_Selected: 1
+  m_LastSelected: 0
 --- !u!114 &14
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -721,11 +721,11 @@ MonoBehaviour:
     - dockPosition: 1
       containerId: overlay-container--right
       floating: 1
-      collapsed: 1
+      collapsed: 0
       displayed: 0
-      snapOffset: {x: -48, y: -49}
+      snapOffset: {x: -369, y: 30}
       snapOffsetDelta: {x: 0, y: 0}
-      snapCorner: 3
+      snapCorner: 1
       id: Scene View/Camera
       index: 1
       layout: 4
@@ -840,9 +840,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 115.87203, y: 16.847294, z: 42.498093}
+    m_Target: {x: 96.00484, y: 18.97976, z: 33.749523}
     speed: 2
-    m_Value: {x: 0.68880606, y: -0.56229115, z: -0.7671129}
+    m_Value: {x: 96.00484, y: 18.97976, z: 33.749523}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -889,13 +889,13 @@ MonoBehaviour:
     m_GridAxis: 0
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: -0.15127657, y: 0.81985015, z: -0.25254074, w: -0.491107}
+    m_Target: {x: -0.24593475, y: 0.3390879, z: -0.09231752, w: -0.9033359}
     speed: 2
-    m_Value: {x: -0.08577275, y: -0.91082734, z: 0.2467644, w: -0.31959963}
+    m_Value: {x: -0.2459344, y: 0.33908743, z: -0.09231739, w: -0.9033346}
   m_Size:
-    m_Target: 5.3079767
+    m_Target: 5.0691175
     speed: 2
-    m_Value: 0.8660254
+    m_Value: 5.0691175
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -1072,7 +1072,7 @@ MonoBehaviour:
     m_FirstInit: 1
   m_LastOverlayPresetName: 
   m_SearchFilter:
-    m_NameFilter: play
+    m_NameFilter: 
     m_ClassNames: []
     m_AssetLabels: []
     m_AssetBundleNames: []
@@ -1084,22 +1084,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Resources/Flooded_Grounds/Scripts
+    - Assets/Scripts
     m_Globs: []
-    m_OriginalText: play
+    m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 96
   m_LastFolders:
-  - Assets/Resources/Flooded_Grounds/Scripts
+  - Assets/Scripts
   m_LastFoldersGridSize: 96
   m_LastProjectPath: C:\Unity\MyPro\Mypr\HideAndSeek
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 70}
-    m_SelectedIDs: 748d0000
-    m_LastClickedID: 36212
-    m_ExpandedIDs: 00000000fa7e0000fc7e0000fe7e0000007f0000027f0000047f0000067f0000087f00000a7f00000c7f00000e7f0000107f0000127f0000147f0000167f0000187f00003e7f000000ca9a3b
+    scrollPos: {x: 0, y: 694}
+    m_SelectedIDs: 427f0000
+    m_LastClickedID: 32578
+    m_ExpandedIDs: 00000000fa7e0000fc7e0000fe7e0000007f0000027f0000047f0000067f0000087f00000a7f00000c7f00000e7f0000107f0000127f0000147f0000167f0000187f00003c7f00003e7f000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1152,8 +1152,8 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: 
-    m_LastClickedInstanceID: 0
+    m_SelectedInstanceIDs: e28a0000
+    m_LastClickedInstanceID: 35554
     m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: c62300004cac00000000000010b30000
     m_RenameOverlay:
@@ -1179,7 +1179,7 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
     m_NewAssetIndexInList: -1
-    m_ScrollPosition: {x: 0, y: 0}
+    m_ScrollPosition: {x: 0, y: 155.5}
     m_GridSize: 96
   m_SkipHiddenPackages: 0
   m_DirectoriesAreaWidth: 207
@@ -1204,7 +1204,7 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
     x: 0
-    y: 609
+    y: 19
     width: 927
     height: 382
   m_ViewDataDictionary: {fileID: 0}
@@ -1246,21 +1246,21 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: 0efbffff
+      m_ExpandedIDs: 225bffff265bffff1469ffff8e71ffff0efbffff30d10000cad20000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
-        m_Name: 
-        m_OriginalName: 
+        m_Name: Rifle
+        m_OriginalName: Rifle
         m_EditFieldRect:
           serializedVersion: 2
           x: 0
           y: 0
           width: 0
           height: 0
-        m_UserData: 0
+        m_UserData: -6826
         m_IsWaitingForDelay: 0
         m_IsRenaming: 0
-        m_OriginalEventType: 11
+        m_OriginalEventType: 0
         m_IsRenamingFilename: 0
         m_ClientGUIView: {fileID: 14}
       m_SearchString: 

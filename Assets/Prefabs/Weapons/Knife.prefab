@@ -129,11 +129,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a549d564930c8f045b462dc9d36d84cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemInfo: {fileID: 11400000, guid: c30ffc3c5539ba1468f5f414ce03919f, type: 2}
   itemGameObject: {fileID: 7772424055866586027}
   weaponThis: {fileID: 5686883008795459040}
-  pricelYes: 0
-  checkOnGun: 0
   bulletImpactPrefab: {fileID: 6521945633980296980, guid: e53c980aac40f714e8037076227eeeec, type: 3}
   mineJump: {fileID: 5024802087668275719, guid: 4a1670a967554e547ac004c5b128d7ca, type: 3}
   cameraMain: {fileID: 0}
