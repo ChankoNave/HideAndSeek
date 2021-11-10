@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GeneralUI : MonoBehaviour
 {
@@ -15,6 +16,8 @@ public class GeneralUI : MonoBehaviour
     [SerializeField] GameObject musicOn;
     [SerializeField] GameObject musicOff;
 
+    [SerializeField] Toggle toggleFps; 
+
     private void Awake()
     {
         if (inst)
@@ -23,10 +26,23 @@ public class GeneralUI : MonoBehaviour
             inst = this;
     }
 
+    private void Start()
+    {
+        toggleFps.onValueChanged.AddListener((value) => FpsOn(value));
+    }
+
     private void Update()
     {
         UpdateSoundsUI();
         UpdateMusiconUI();
+    }
+
+    private void FpsOn(bool on)
+    {
+        if (on)
+            GameMeaning.FPSUI = true;
+        else
+            GameMeaning.FPSUI = false;
     }
 
     public void ButtonSoundOnOff()

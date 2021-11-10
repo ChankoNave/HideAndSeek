@@ -177,7 +177,7 @@ public class PlayerController : MonoBehaviourPunCallbacks, IDamageable
 
             if (StepTimerDown == 0)
             {
-                if (Physics.Raycast(raicast.transform.position, -Vector3.up, out hit, 10))
+                if (Physics.Raycast(raicast.transform.position, -Vector3.up, out hit, 6))
                 {
                     if (hit.transform.tag == "Ground") source.PlayOneShot(Ground[Random.Range(0, Ground.Length)], gromkost);
                     if (hit.transform.tag == "Beton") source.PlayOneShot(Beton[Random.Range(0, Beton.Length)], gromkost);
@@ -193,6 +193,63 @@ public class PlayerController : MonoBehaviourPunCallbacks, IDamageable
     {
         weaponThisNow = weaponThis;
     }
+
+    //private void HeightCheck()
+    //{
+    //    if (Physics.Raycast(raicast.transform.position, -Vector3.up, out hit, 300))
+    //    {
+    //        if (hit.distance >= 6 && hit.distance <= 15)
+    //        {
+    //            currentHealth -= 20f;
+    //            Debug.Log("Health -20 " + currentHealth);
+    //        }
+    //        if (hit.distance >= 16 && hit.distance <= 25)
+    //        {
+    //            currentHealth -= 50f;
+    //            Debug.Log("Health -50 " + currentHealth);
+    //        }
+    //        if (hit.distance >= 26 && hit.distance <= 45)
+    //        {
+    //            currentHealth -= 100f;
+    //            Debug.Log("Health -100 " + currentHealth);
+    //        }
+    //        if (hit.distance >= 46 && hit.distance <= 65)
+    //        {
+    //            currentHealth -= 200f;
+    //            Debug.Log("Health -200 " + currentHealth);
+    //        }
+    //        if (hit.distance >= 66 && hit.distance <= 150)
+    //        {
+    //            Die();
+    //            Debug.Log("Health -die " + currentHealth);
+    //        }
+
+    //        healthbarImage.fillAmount = currentHealth;
+    //    }
+
+    //Ray ray = new Ray(transform.position, transform.forward); // TODO Add graviGun
+
+    //if (Physics.Raycast(ray, out RaycastHit raycastHit, rayDistanse))
+    //{
+    //    Debug.Log(raycastHit.collider.name);
+
+    //    RaycastHit hit;
+    //    //TODO передедать на подписки
+    //    //if (TurretsWeaponsPanel.inst.fuseTractorBeam)
+    //    //{
+    //    //    if (Mouse.current.leftButton.isPressed)
+    //    //        if (Physics.Raycast(ray, out hit))
+    //    //            if (hit.rigidbody != null)
+    //    //                hit.rigidbody.AddForce(-transform.forward * powerAttraction);
+
+    //    //    if (Mouse.current.rightButton.isPressed)
+    //    //        if (Physics.Raycast(ray, out hit))
+    //    //            if (hit.rigidbody != null)
+    //    //                hit.rigidbody.AddForce(transform.forward * powerAttraction);
+    //    //}
+    //}
+
+    //}
 
     public void SetGroundedState(bool _grounded)
     {
@@ -262,6 +319,7 @@ public class PlayerController : MonoBehaviourPunCallbacks, IDamageable
     {
         gameNow = true;
         loadingPanel.SetActive(false);
+        AnimStop();
     }
 
     internal void DisablePlayer()
@@ -539,7 +597,7 @@ public class PlayerController : MonoBehaviourPunCallbacks, IDamageable
     #region Anim
     private bool isIdel, isMove, isRun, isQuiet;
 
-    public bool isJump;
+    internal bool isJump;
 
     private void AnimationsController()
     {
@@ -602,6 +660,12 @@ public class PlayerController : MonoBehaviourPunCallbacks, IDamageable
     private void UpdateBoleanDie(bool die)
     {
         _anim.SetBool("Die", die);
+    }
+
+    private void AnimStop()
+    {
+        isMove = isRun = isQuiet = isJump = false;
+        isIdel = true;
     }
     #endregion
 }

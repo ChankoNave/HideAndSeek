@@ -49,6 +49,10 @@ public static class GameMeaning
 
     #endregion
 
+    #region GameSettings
+    internal static bool FPSUI;
+    #endregion
+
     #region Game Process (in Scene)
     public const float TIMEGAME = 480000f; //Время раунда 8 минут  
 
