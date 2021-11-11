@@ -6,9 +6,11 @@ using UnityEngine;
 using UnityEngine.UI;
 using Hashtable = ExitGames.Client.Photon.Hashtable;
 
+#region RequireComponentBlock
 [RequireComponent(typeof(PhotonView))]
 [RequireComponent (typeof(Rigidbody))]
 [RequireComponent(typeof(Animator))]
+#endregion
 public class PlayerController : MonoBehaviourPunCallbacks, IDamageable
 {
     #region Variables
@@ -43,7 +45,7 @@ public class PlayerController : MonoBehaviourPunCallbacks, IDamageable
     private int itemIndex;
     private int previousItemIndex = -1;
     private float verticalLookRotation;
-    private bool grounded, damageCheck;
+    private bool grounded, damageCheckShoot, damageCheckFromHeight;
 
     Vector3 smoothMoveVelocity;
     Vector3 moveAmount;
@@ -195,7 +197,7 @@ public class PlayerController : MonoBehaviourPunCallbacks, IDamageable
         weaponThisNow = weaponThis;
     }
 
-    private float damageCurrent { get; set; }
+    private int damageCurrent, damageNow;
     private bool checkDamageOne, checkDamageTwo, checkDamageThree, checkDamageFour, checkDamageFive;
 
     private void HeightCheck()
@@ -204,53 +206,63 @@ public class PlayerController : MonoBehaviourPunCallbacks, IDamageable
         {
             if (hit.distance >= 6 && hit.distance <= 15 && !checkDamageOne)
             {
-                damageCurrent += 20f;
+                damageCurrent += 20;
                 checkDamageOne = true;
-                Debug.Log("Health -20 " + currentHealth);
             }
             if (hit.distance >= 16 && hit.distance <= 25 && !checkDamageTwo)
             {
-                damageCurrent += 50f;
+                damageCurrent += 30;
                 checkDamageTwo = true;
-                Debug.Log("Health -50 " + currentHealth);
             }
             if (hit.distance >= 26 && hit.distance <= 45 && !checkDamageThree)
             {
-                damageCurrent += 100f;
+                damageCurrent += 50;
                 checkDamageThree = true;
-                Debug.Log("Health -100 " + currentHealth);
             }
             if (hit.distance >= 46 && hit.distance <= 65 && !checkDamageFour)
             {
-                damageCurrent += 200f;
+                damageCurrent += 70;
                 checkDamageFour = true;
-                Debug.Log("Health -200 " + currentHealth);
             }
-            if (hit.distance >= 66 && hit.distance <= 1500 && !checkDamageFive)
+            if (hit.distance >= 66 && hit.distance <= 300 && !checkDamageFive)
             {
+                damageCurrent += 79;
                 checkDamageFive = true;
-                Debug.Log("Health -die " + currentHealth);
             }
-            Debug.Log("Damage 0 + " + damageCurrent);
+            damageNow = damageCurrent;
         }
     }
 
     public void SetGroundedState(bool _grounded)
     {
-        if (grounded)
+        grounded = _grounded;
+
+        if (!grounded)
         {
-            grounded = _grounded;
             checkDamageOne = checkDamageTwo = checkDamageThree = checkDamageFour = checkDamageFive = false;
-            currentHealth -= damageCurrent;
-            damageCurrent = 0;
-            Debug.Log("Damage 1+ " + damageCurrent);
+            damageCheckFromHeight = false;
         }
         else
         {
-            Debug.Log("Damage + " + damageCurrent);
-            
+            damageCheckFromHeight = true;
+            CheckNow();
         }
-        
+    }
+
+    private void CheckNow()
+    {
+        if (damageCheckFromHeight)
+        {
+            currentHealth -= damageNow;
+
+            healthbarImage.fillAmount = currentHealth / GameMeaning.MAXHEALTHPLAYER;
+
+            if (currentHealth <= 0)
+                Die();
+
+            damageCurrent = 0;
+            damageNow = 0;
+        }
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -294,11 +306,6 @@ public class PlayerController : MonoBehaviourPunCallbacks, IDamageable
             Die();
 
         if (transform.position.y > 300f)
-            Die();
-
-        healthbarImage.fillAmount = currentHealth / GameMeaning.MAXHEALTHPLAYER;
-
-        if (currentHealth <= 0)
             Die();
     }
 
@@ -562,7 +569,7 @@ public class PlayerController : MonoBehaviourPunCallbacks, IDamageable
         if (!PV.IsMine)
             return;
 
-        if (damageCheck == true)
+        if (damageCheckShoot == true)
             currentHealth -= damage;
 
         healthbarImage.fillAmount = currentHealth / GameMeaning.MAXHEALTHPLAYER;
@@ -583,9 +590,9 @@ public class PlayerController : MonoBehaviourPunCallbacks, IDamageable
             return;
 
         if (teamId == TeamID)
-            damageCheck = false;
+            damageCheckShoot = false;
         else
-            damageCheck = true;
+            damageCheckShoot = true;
     }
 
     [PunRPC]
