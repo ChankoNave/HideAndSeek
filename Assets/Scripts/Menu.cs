@@ -5,11 +5,6 @@ public class Menu : MonoBehaviour
 	public string menuName;
 	public bool open;
 
-    //private void Start()
-    //{
-    //    DontDestroyOnLoad(gameObject);
-    //}
-
     public void Open()
     {
         SoundManager.inst.PlayButton();

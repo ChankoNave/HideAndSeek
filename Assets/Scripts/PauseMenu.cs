@@ -1,8 +1,5 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using Photon.Pun;
-using System.Threading.Tasks;
-using Photon.Realtime;
 
 public class PauseMenu : MonoBehaviour
 {
@@ -10,12 +7,10 @@ public class PauseMenu : MonoBehaviour
 
     [SerializeField]
     GameObject pausePanel, settinsPanel, shopPanels;
-    new PhotonView photonView;
-
+    
     private void Awake()
     {
         inst = this;
-        photonView = GetComponent<PhotonView>();
     }
 
     public void Continue()

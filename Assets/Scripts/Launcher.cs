@@ -68,7 +68,7 @@ public class Launcher : MonoBehaviourPunCallbacks
 
 		foreach(Transform child in playerListContent)
 		{
-			
+			Destroy(child.gameObject);
 		}
 
 		for(int i = 0; i < players.Count(); i++)
@@ -132,7 +132,7 @@ public class Launcher : MonoBehaviourPunCallbacks
 	{
 		foreach(Transform trans in roomListContent)
 		{
-			
+			Destroy(trans.gameObject);
 		}
 
 		for(int i = 0; i < roomList.Count; i++)

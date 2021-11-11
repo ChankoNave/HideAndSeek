@@ -498,7 +498,7 @@ namespace Photon.Pun
             }
         }
 
-        private static bool automaticallySyncScene = true;
+        private static bool automaticallySyncScene = true; // true 11.11.21
 
         /// <summary>
         /// If enabled, the client will get a list of available lobbies from the Master Server.

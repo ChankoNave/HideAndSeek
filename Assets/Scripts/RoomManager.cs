@@ -19,11 +19,6 @@ public class RoomManager : MonoBehaviourPunCallbacks
         inst = this;
 	}
 
-	public void DestroyGame()
-    {
-		Destroy(gameObject);
-    }
-
 	public override void OnEnable()
 	{
 		base.OnEnable();
