@@ -1,3 +1,4 @@
+using Photon.Pun;
 using UnityEngine;
 
 public class InteractionsObjects : MonoBehaviour
@@ -14,12 +15,14 @@ public class InteractionsObjects : MonoBehaviour
         weaponThis = Random.Range(0, 8);
     }
 
+    [PunRPC]
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "Player")
             collision.gameObject.GetComponent<PlayerController>().InteractionsOn(weaponThis);
     }
 
+    [PunRPC]
     public void OpenObject()
     {
         SoundManager.inst.FindWeapons();

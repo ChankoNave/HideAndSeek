@@ -40,6 +40,9 @@ MonoBehaviour:
   - RPC_Mine
   - RPC_MineGo
   - RPC_ShootisPricel
+  - OnCollisionEnter
+  - OpenObject
+  - RPC_ShootID
   DisableAutoOpenWizard: 1
   ShowSettings: 1
   DevRegionSetOnce: 1

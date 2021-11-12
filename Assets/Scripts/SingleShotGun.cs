@@ -61,8 +61,8 @@ public class SingleShotGun : Gun
             switch (shootType)
             {
                 case 1:
-					//hit.collider.gameObject.GetComponent<IDamageable>()?.Identifications(((GunInfo)itemInfo).id);
-					//PV.RPC("RPC_ShootisPricel", RpcTarget.All, hit.point, hit.normal);
+					hit.collider.gameObject.GetComponent<IDamageable>()?.Identifications(((GunInfo)itemInfo).id);
+					PV.RPC("RPC_ShootID", RpcTarget.All, hit.point, hit.normal);
 					hit.collider.gameObject.GetComponent<IDamageable>()?.TakeDamage(((GunInfo)itemInfo).damage);
                     PV.RPC("RPC_Shoot", RpcTarget.All, hit.point, hit.normal);
                     break;
@@ -71,8 +71,8 @@ public class SingleShotGun : Gun
                     PV.RPC("RPC_Mine", RpcTarget.All, hit.point, hit.normal);
                     break;
                 case 3:
-					//hit.collider.gameObject.GetComponent<IDamageable>()?.Identifications(((GunInfo)itemInfo).id);
-					//PV.RPC("RPC_ShootisPricel", RpcTarget.All, hit.point, hit.normal);
+					hit.collider.gameObject.GetComponent<IDamageable>()?.Identifications(((GunInfo)itemInfo).id);
+					PV.RPC("RPC_ShootID", RpcTarget.All, hit.point, hit.normal);
 					hit.collider.gameObject.GetComponent<IDamageable>()?.TakeDamage(((GunInfo)itemInfo).damage);
 					PV.RPC("RPC_Shoot", RpcTarget.All, hit.point, hit.normal);
 					break;
@@ -104,7 +104,7 @@ public class SingleShotGun : Gun
     }
 
 	[PunRPC]
-	private void RPC_ShootisPricel(Vector3 hitPosition, Vector3 hitNormal)
+	private void RPC_ShootID(Vector3 hitPosition, Vector3 hitNormal)
     {
 		Collider[] colliders = Physics.OverlapSphere(hitPosition, 0.3f);
 
