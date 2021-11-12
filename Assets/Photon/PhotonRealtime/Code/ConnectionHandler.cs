@@ -57,7 +57,7 @@ namespace Photon.Realtime
 #if SUPPORTED_UNITY
 
         /// <summary>Keeps the ConnectionHandler, even if a new scene gets loaded.</summary>
-        public bool ApplyDontDestroyOnLoad = false;// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        public bool ApplyDontDestroyOnLoad = true;
 
         /// <summary>Indicates that the app is closing. Set in OnApplicationQuit().</summary>
         [NonSerialized]

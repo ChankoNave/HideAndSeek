@@ -18,7 +18,7 @@ public class PlayerManager : MonoBehaviour
     {
         inst = this;
         PV = GetComponent<PhotonView>();
-        DontDestroyOnLoad(gameObject);
+        //DontDestroyOnLoad(gameObject);
     }
 
     private void Start()
@@ -76,7 +76,7 @@ public class PlayerManager : MonoBehaviour
         }
     }
 
-    public void Die()
+    internal void Die()
     {
         PhotonNetwork.Destroy(controller);
         Collectors();

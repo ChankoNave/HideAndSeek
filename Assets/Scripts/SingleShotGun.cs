@@ -1,7 +1,7 @@
 ﻿using Photon.Pun;
 using UnityEngine;
 
-[RequireComponent(typeof(PhotonView))]
+//[RequireComponent(typeof(PhotonView))]
 public class SingleShotGun : Gun
 {
 	[SerializeField]
@@ -61,7 +61,9 @@ public class SingleShotGun : Gun
             switch (shootType)
             {
                 case 1:
-                    hit.collider.gameObject.GetComponent<IDamageable>()?.TakeDamage(((GunInfo)itemInfo).damage);
+					//hit.collider.gameObject.GetComponent<IDamageable>()?.Identifications(((GunInfo)itemInfo).id);
+					//PV.RPC("RPC_ShootisPricel", RpcTarget.All, hit.point, hit.normal);
+					hit.collider.gameObject.GetComponent<IDamageable>()?.TakeDamage(((GunInfo)itemInfo).damage);
                     PV.RPC("RPC_Shoot", RpcTarget.All, hit.point, hit.normal);
                     break;
                 case 2:
@@ -69,9 +71,11 @@ public class SingleShotGun : Gun
                     PV.RPC("RPC_Mine", RpcTarget.All, hit.point, hit.normal);
                     break;
                 case 3:
-                    hit.collider.gameObject.GetComponent<IDamageable>()?.Identifications(((GunInfo)itemInfo).id);
-                    PV.RPC("RPC_ShootisPricel", RpcTarget.All, hit.point, hit.normal);
-                    break;
+					//hit.collider.gameObject.GetComponent<IDamageable>()?.Identifications(((GunInfo)itemInfo).id);
+					//PV.RPC("RPC_ShootisPricel", RpcTarget.All, hit.point, hit.normal);
+					hit.collider.gameObject.GetComponent<IDamageable>()?.TakeDamage(((GunInfo)itemInfo).damage);
+					PV.RPC("RPC_Shoot", RpcTarget.All, hit.point, hit.normal);
+					break;
             }
         }
     }
