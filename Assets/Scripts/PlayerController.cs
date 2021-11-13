@@ -7,9 +7,9 @@ using UnityEngine.UI;
 using Hashtable = ExitGames.Client.Photon.Hashtable;
 
 #region RequireComponentBlock
-//[RequireComponent(typeof(PhotonView))]
-//[RequireComponent (typeof(Rigidbody))]
-//[RequireComponent(typeof(Animator))]
+[RequireComponent(typeof(PhotonView))]
+[RequireComponent(typeof(Rigidbody))]
+[RequireComponent(typeof(Animator))]
 #endregion
 public class PlayerController : MonoBehaviourPunCallbacks, IDamageable
 {
@@ -258,11 +258,8 @@ public class PlayerController : MonoBehaviourPunCallbacks, IDamageable
             healthbarImage.fillAmount = currentHealth / GameMeaning.MAXHEALTHPLAYER;
 
             if (currentHealth <= 0)
-            {
-                Debug.Log("DIE&&as 3");
                 Die();
-            }
-
+            
             damageCurrent = 0;
             damageNow = 0;
         }
@@ -306,21 +303,14 @@ public class PlayerController : MonoBehaviourPunCallbacks, IDamageable
     private void LifeControls()
     {
         if (transform.position.y < -100f)
-        {
-            Debug.Log("DIE&&as 1");
             Die();
-        }
+        
         if (transform.position.y > 300f)
-        {
-            Debug.Log("DIE&&as 2");
             Die();
-        }
-            
     }
 
     private async void Die()
     {
-        Debug.Log("DIE&&as 3");
         SoundManager.inst.Die();
         UpdateBoleanDie(true);
 

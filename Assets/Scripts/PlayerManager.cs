@@ -18,7 +18,7 @@ public class PlayerManager : MonoBehaviour
     {
         inst = this;
         PV = GetComponent<PhotonView>();
-        //DontDestroyOnLoad(gameObject);
+        DontDestroyOnLoad(gameObject); //!!!!!!!!!!!!!!!
     }
 
     private void Start()
