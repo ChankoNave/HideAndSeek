@@ -4,11 +4,11 @@ public class Teleport : MonoBehaviour
 {
     [SerializeField] GameObject teleport;
 
-    void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Player")
         {
-            SoundManager.inst.TeleportOneSound();
+            SoundManager.inst?.TeleportOneSound();
             other.transform.position = teleport.transform.position;
         }
     }

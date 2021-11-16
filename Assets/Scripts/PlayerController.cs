@@ -182,10 +182,14 @@ public class PlayerController : MonoBehaviourPunCallbacks, IDamageable
             {
                 if (Physics.Raycast(raicast.transform.position, -Vector3.up, out hit, 6))
                 {
-                    if (hit.transform.tag == "Ground") source.PlayOneShot(Ground[Random.Range(0, Ground.Length)], gromkost);
-                    if (hit.transform.tag == "Beton") source.PlayOneShot(Beton[Random.Range(0, Beton.Length)], gromkost);
-                    if (hit.transform.tag == "Wood") source.PlayOneShot(Wood[Random.Range(0, Wood.Length)], gromkost);
-                    if (hit.transform.tag == "Metal" || hit.transform.name == "luk_podsobki") source.PlayOneShot(Metal[Random.Range(0, Metal.Length)], gromkost);
+                    if (hit.transform.tag == "Ground")
+                        source.PlayOneShot(Ground[Random.Range(0, Ground.Length)], gromkost);
+                    if (hit.transform.tag == "Beton")
+                        source.PlayOneShot(Beton[Random.Range(0, Beton.Length)], gromkost);
+                    if (hit.transform.tag == "Wood")
+                        source.PlayOneShot(Wood[Random.Range(0, Wood.Length)], gromkost);
+                    if (hit.transform.tag == "Metal" || hit.transform.name == "luk_podsobki")
+                        source.PlayOneShot(Metal[Random.Range(0, Metal.Length)], gromkost);
                 }
                 StepTimerDown = stepTimer;
             }
