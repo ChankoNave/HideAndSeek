@@ -57,9 +57,9 @@ public class TrainControllers : MonoBehaviour
     internal async void EngineOn()
     {
         PlayEngineTraine(0.2f);
-        await Task.Delay(17000);
+        await Task.Delay(1700);
         PlayEngineTraine(1f);
-        await Task.Delay(30000);
+        await Task.Delay(3000);
         MoveTrain();
         await Task.Delay(16000);
         StopAddSpeed();

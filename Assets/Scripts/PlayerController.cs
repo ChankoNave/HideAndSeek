@@ -316,6 +316,7 @@ public class PlayerController : MonoBehaviourPunCallbacks, IDamageable
     private async void Die()
     {
         SoundManager.inst.Die();
+        AnimStop();
         UpdateBoleanDie(true);
 
         await Task.Delay(GameMeaning.DIETIME);

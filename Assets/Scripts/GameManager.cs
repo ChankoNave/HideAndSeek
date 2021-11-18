@@ -91,7 +91,7 @@ public static class GameMeaning
     public const float SPINTSPEED = 6F;
     public const float WALKSPEED = 3F;
     public const float QUIETSPEED = 1.0F;
-    public const float JUMPFORCE = 300F;
+    public const float JUMPFORCE = 400F;
     public const float SMOOTHTIME = 0.15F;
 
     public const float QUIETSTEP = 1.4F; //скорость звука на шифте 
@@ -107,6 +107,6 @@ public static class GameMeaning
     #endregion
 
     #region  Animations TIMING sync
-    public const int DIETIME = 700; //milliseq
+    public const int DIETIME = 1000; //milliseq
     #endregion
 }
