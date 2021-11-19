@@ -9,7 +9,7 @@ public class CheckingJointsRails : MonoBehaviour
     private AudioClip knockRail;
 
     [SerializeField]
-    private GameObject raicastFront, raicastBack;
+    private GameObject raicastFront;
 
     private RaycastHit hit;
 
@@ -22,11 +22,6 @@ public class CheckingJointsRails : MonoBehaviour
     {
         if (Physics.Raycast(raicastFront.transform.position, -Vector3.up, out hit, 2))
             if (hit.transform.tag == "RailwayJunction")
-                audioSource.PlayOneShot(knockRail, 1f);
-    }
-
-    private void JointsRails()
-    {
-        audioSource.Play();
+                audioSource.PlayOneShot(knockRail, 0.3f);
     }
 }

@@ -196,6 +196,14 @@ public class PlayerController : MonoBehaviourPunCallbacks, IDamageable
         }
     }
 
+    internal void HpPlus()
+    {
+        currentHealth += 50f;
+
+        healthbarImage.fillAmount = currentHealth / GameMeaning.MAXHEALTHPLAYER;
+        Debug.Log(" HP Plus " + currentHealth.ToString());
+    }
+
     public void InteractionsOn(int weaponThis)
     {
         weaponThisNow = weaponThis;
